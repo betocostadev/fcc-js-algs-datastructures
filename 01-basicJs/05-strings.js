@@ -55,3 +55,33 @@ var umNombre = "Charles";
 var secondLetter = umNombre[1];
 console.log(umNombre);
 console.log(secondLetter);
+
+/* String Immutability
+We cannot change a String like:
+var me = "Beto" using me[0] = "C"
+This would not transform the me variable into Ceto because o the immutability.
+However, this doesn't mean we cannot change a string. We could chage it like other variables
+using me = "Ceto" */
+var iWant = "bob";
+console.log(`Variable iWant = ${iWant}.`)
+console.log(`Trying to change the variable iWant to "job" with iWant[0] = "j"`);
+iWant[0] = "j";
+console.log(`iWant = ${iWant}`);
+console.log(`As you can see, it doesn't work because of String Immutability.
+However we can change the string, but changing all of it's contents.
+In this case. iWant = "job".
+Let's see the output:`);
+iWant = "job";
+console.log(iWant);
+
+/* Use Bracket Notation to find the Nth character in a string
+Lets find the letter "o" by using iWant[1] */
+var secondLetterOfIWant = iWant[1];
+console.log(`The second letter of iWant is = ${secondLetterOfIWant}`);
+
+/* We can also try the oposite way, by looking for the last character.
+In this case, we need to include the length method! */
+var lastLetterOfIWant = iWant[iWant.length - 1];
+console.log(lastLetterOfIWant);
+/* More uses: */
+console.log(iWant[iWant.length - 3] + secondLetterOfIWant + lastLetterOfIWant);
