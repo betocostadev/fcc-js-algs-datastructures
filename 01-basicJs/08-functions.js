@@ -65,3 +65,72 @@ function fun2() {
 }
 fun1();
 fun2();
+
+/*
+LOCAL SCOPE AND FUNCTIONS
+Variables declared inside a function declaration have local scope, which means they are available only inside that function, after that, they "die", meaning, their space in memmory is not used anymore.
+*/
+function myLocScope() {
+  var loc = "foo";
+  console.log(loc);
+}
+myLocScope(); // logs "foo"
+//console.log(loc); // loc is not defined
+
+/* GLOBAL VS. LOCAL SCOPE VARIABLES
+When you do this, the local variable takes precedence over the global variable.
+ */
+var justAVar = 20;
+function globalLocal() {
+  var justAVar = 10;
+  console.log("Var justAVar inside the function: " + justAVar);
+  return justAVar;
+}
+console.log("The variable justAVar before the function is called:");
+console.log(justAVar);
+globalLocal();
+console.log("The variable justAVar after the function is called:");
+console.log(justAVar);
+console.log(`The variable keeps the same value because it is not considered the same variable
+since it was declared again inside the function. Even returning the value in the end of the
+function. Only the variable inside the function have a different value.`);
+
+/* RETURN A VALUE FROM A FUNCTION WITH "RETURN"
+We can pass values into a function with arguments. You can use a return statement to send a value back out of a function. */
+
+console.log("Returning a value from a function: ");
+function doubleIt(num) {
+  return num * 2;
+}
+console.log(doubleIt(21));
+
+/* UNDEFINED VALUE FROM A FUNCTION
+A function can include the return statement but it does not have to. In the case that the function doesn't have a return statement, when you call it, the function processes the inner code but the returned value is undefined. */
+// Example
+var sum = 0;
+function addThree() {
+  sum = sum + 3;
+}
+
+// Only change code below this line
+function addFive() {
+  sum += 5;
+}
+
+
+// Only change code above this line
+var returnedValue = addFive();
+console.log("Since we have not returned any value from the function, it will be: ");
+console.log(returnedValue);
+
+/* ASSIGNMENT WITH A RETURNED VALUE
+We can assign a new value to an existing variable by returning it from the function */
+
+var aSimpleVar = 35;
+console.log("Our var before the function: ");
+console.log(aSimpleVar);
+function processArg() {
+  return aSimpleVar + 8;
+}
+aSimpleVar = processArg();
+console.log(aSimpleVar);
