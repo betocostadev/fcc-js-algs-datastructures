@@ -52,3 +52,89 @@ function bar(y) {
 
 foo(thirdNum);
 bar(thirdNum);
+
+console.log('\n Switch Statements:\n');
+/* SWITCH STATEMENTS */
+/* Switch statements test various values until they find a break to stop the execution.
+If you don't add breaks to cases, if more than one case matches, then the switch will execute every other statements after the "true" statement until it reaches a break;
+
+switch(num) {
+  case value1:
+    statement1;
+    break;
+  case value2:
+    statement2;
+    break;
+...
+  case valueN:
+    statementN;
+    break;
+}
+ */
+
+/* Switch case example */
+function getRoman(letter) {
+  let answer = '';
+  switch (letter) {
+    case 'a':
+    answer = 'alpha';
+    break;
+    case 'b':
+    answer = 'beta';
+    break;
+    case 'c':
+    answer = 'charlie';
+    break;
+    default:
+    answer = 'no letter found'
+    break;
+  }
+  return answer;
+}
+console.log(getRoman('b'));
+console.log(getRoman('c'));
+console.log(getRoman('d'));
+
+/* Multiple Switch statements with the same value: */
+function sequentialSizes(val) {
+  var answer = "";
+  switch(val) {
+    case 1:
+    case 2:
+    case 3:
+    answer = "Low";
+    break;
+    case 4:
+    case 5:
+    case 6:
+    answer = "Mid";
+    break;
+    case 7:
+    case 8:
+    case 9:
+    answer = "High";
+    break;
+    default:
+    answer = "Not valid!"
+  }
+  // Only change code above this line
+  return answer;
+}
+
+console.log(sequentialSizes(1));
+console.log(sequentialSizes(2));
+console.log(sequentialSizes(4));
+console.log(sequentialSizes(7));
+
+
+/* RETURN BOOLEANS FROM FUNCTIONS
+We can use a simpler way instead of an if in a function if we do like below: */
+console.log('\nReturning booleans from functions\n');
+let morning = 'sun';
+let night = 'rain';
+
+function isEqual(first, second) {
+  return first === second;
+}
+console.log(`Is ${morning} equal ${night}?
+Answer returned from function: ${isEqual(morning, night)}`);
