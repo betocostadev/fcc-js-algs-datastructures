@@ -138,3 +138,30 @@ function isEqual(first, second) {
 }
 console.log(`Is ${morning} equal ${night}?
 Answer returned from function: ${isEqual(morning, night)}`);
+
+/* RETURN EARLY PATTERN FOR FUNCTIONS
+We can use a return statement to return the function before executing the entire function
+if we found something in the way that doesn't require the function to be completely executed. */
+console.log(`
+Return Early Pattern for Functions:
+`);
+// Setup
+function abTest(a, b) {
+  // Only change code below this line
+  if (a < 0 || b < 0) {
+    return undefined;
+  }
+
+  // Only change code above this line
+
+  return Math.round(Math.pow(Math.sqrt(a) + Math.sqrt(b), 2));
+}
+
+// Change values below to test your code
+abTest(2,2);
+console.log(abTest(2,2));
+console.log(abTest(2,1));
+console.log(abTest(3,4));
+console.log(abTest(-1,4));
+console.log(abTest(-1,-1));
+console.log(abTest(3,-2));
