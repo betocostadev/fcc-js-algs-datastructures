@@ -109,3 +109,109 @@ console.log(players);
 console.log('\nDeleting an object property using the "delete" keyword:');
 delete players.location;
 console.log(players);
+
+/* OBJECTS FOR LOOKUPS */
+/* If you have something like a table, instead of using a switch or an IF-Else statement
+you can use an object to store the data you need and then access it: */
+console.log('\nObject lookup:\n');
+// Setup
+function phoneticLookup(val) {
+  var result = "";
+  /* Instead of IF-Else or Switch, the object */
+  var lookup = {
+    alpha: 'Adams',
+    bravo: 'Boston',
+    charlie: 'Chicago',
+    delta: 'Denver',
+    echo: 'Easy',
+    foxtrot: 'Frank'
+  }
+  result = lookup[val];
+  return result;
+}
+console.log(phoneticLookup("charlie"));
+console.log(phoneticLookup("bravo"));
+
+/* TESTING OBJECTS FOR PROPERTIES */
+/* We can use object methods to do many changes to objects. One is to check if an object
+has a property. We use objName.hasOwnProperty('theProperty'); to check. */
+console.log(`
+Testing objects for properties:
+`);
+// Setup
+var someStuff = {
+  gift: "pony",
+  pet: "kitten",
+  bed: "sleigh"
+};
+
+function checkObj(objName, checkProp) {
+  if (objName.hasOwnProperty(checkProp)) {
+    return objName[checkProp];
+  }
+  return 'Not Found!';
+}
+
+// Test your code by modifying these values
+console.log(checkObj(someStuff, 'pet'));
+console.log(checkObj(someStuff, 'bed'));
+console.log(checkObj(someStuff, 'house'));
+
+/* NESTED OBJECTS:
+Like arrays, objects can be nested inside of other objects (and arrays).
+var ourStorage = {
+  "desk": {
+    "drawer": "stapler"
+  },
+  "cabinet": {
+    "top drawer": {
+      "folder1": "a file",
+      "folder2": "secrets"
+    },
+    "bottom drawer": "soda"
+  }
+};
+ourStorage.cabinet["top drawer"].folder2; // "secrets"
+ourStorage.desk.drawer; // "stapler"
+Example: */
+// Setup
+console.log('\nAccessing nested objects:\n');
+var myStorage = {
+  "car": {
+    "inside": {
+      "glove box": "maps",
+      "passenger seat": "crumbs"
+     },
+    "outside": {
+      "trunk": "jack"
+    }
+  }
+};
+
+var gloveBoxContents = myStorage.car.inside['glove box']; // Change this line
+console.log(gloveBoxContents);
+
+/* ACCESSING NESTED ARRAYS
+As we have seen in earlier examples, objects can contain both nested objects and nested arrays. Similar to accessing nested objects, Array bracket notation can be chained to access nested arrays. */
+console.log('\nAccessing a nest array inside an object:\n');
+var myPlants = [
+  {
+    type: "flowers",
+    list: [
+      "rose",
+      "tulip",
+      "dandelion"
+    ]
+  },
+  {
+    type: "trees",
+    list: [
+      "fir",
+      "pine",
+      "birch"
+    ]
+  }
+];
+
+var secondTree = myPlants[1].list[1];
+console.log(secondTree);
