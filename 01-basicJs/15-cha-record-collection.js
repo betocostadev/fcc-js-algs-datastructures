@@ -41,6 +41,9 @@ var collection = {
     },
     "5439": {
       "album": "ABBA Gold"
+    },
+    "2334": {
+      "artist": "The Offspring"
     }
 };
 // Keep a copy of the collection for tests
@@ -48,23 +51,28 @@ var collectionCopy = JSON.parse(JSON.stringify(collection));
 
 // Only change code below this line
 function updateRecords(id, prop, value) {
-    if (id != '') {
-        id = collection.id;
-    } else {
-        if (prop == 'artist' && prop == '') {
-            prop = value;
-        }
-        if (prop == 'album' && 'album' != '' ) {
-            collection.prop = value;
-        } else {
-            collection.prop = prop;
-        }
-    }
-
+  const data = collection[id];
+  // console.log(data);
+  if (!value){
+    delete data[prop];
+    return collection;
+  }
+  if (!data.hasOwnProperty("tracks") && prop === "tracks"){
+    data["tracks"] = [value];
+    return collection;
+  }
+  if (data.hasOwnProperty("tracks") && prop === "tracks"){
+    data["tracks"].push(value);
+    return collection;
+  }
+  data[prop] = value;
   return collection;
 }
 
 // Alter values below to test your code
 updateRecords(5439, "artist", "ABBA");
+updateRecords(2334, "album", "Americana");
+updateRecords(2334, "tracks", "1 - Have You Ever");
+console.log('==============');
+// console.log(collection.id);
 console.log(collection);
-// console.log(collection[5439]);
