@@ -1,4 +1,4 @@
-/* Basic JavaScript: Profile Lookup
+/* Free Code Camp | Basic JavaScript: Profile Lookup
 We have an array of objects representing different people in our contacts lists.
 
 A lookUpProfile function that takes name and a property (prop) as arguments has been pre-written for you.

@@ -1,3 +1,4 @@
+// Free Code Camp | Basic JavaScript: Random numbers and Parse Int
 /* Generate Random Fractions with JavaScript
 Random numbers are useful for creating random behavior.
 
@@ -38,3 +39,33 @@ const lottery = (minNum, maxNum, total) => {
   return generatedNumbers;
 }
 console.log(lottery(1, 60, 6));
+
+/* CONVERTING STRINGS TO NUMBERS */
+
+let bond = '007'
+console.log(`
+Converting strings to numbers.
+
+Bond is: ${bond}, it's type is: ${typeof bond}`);
+
+const convertToInt = (str) => {
+  let newNum = parseInt(str);
+  return newNum;
+}
+
+const newBond = convertToInt(bond);
+
+console.log(`Bond is now: ${newBond}, it's type is: ${typeof newBond}`);
+
+console.log(`
+parseInt with a Radix:`);
+
+function convertWithRadix(str) {
+  let radix = parseInt(str, 2);
+  return radix;
+}
+
+/* The radix variable says that "11" is in the binary system, or base 2. This example converts the string "11" to an integer 3. */
+console.log(convertWithRadix("11")); // 3
+console.log(convertWithRadix("10011")); // 19
+console.log(convertWithRadix("111001")); // 57
