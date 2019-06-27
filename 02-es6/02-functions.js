@@ -99,3 +99,37 @@ const sayHello = (name = 'Anonymous') => {
 }
 console.log(`Using the default paramenter: ${sayHello()}
 Providing a parameter: ${sayHello('Beto')}`);
+
+console.log(`
+=== Using ES6 Sintax for object methods ===
+`);
+
+// ES5
+
+const event = {
+  name: 'Party',
+  guestList: ['Beto', 'Carol', 'Rita'],
+  printGuestList: function () {
+    console.log(`Event name: ${this.name}`);
+  }
+}
+event.printGuestList();
+
+console.log(`Using ES6 Syntax for the method:
+`);
+
+const newEvent = {
+  name: 'Party',
+  guestList: ['Beto', 'Carol', 'Rita'],
+  printGuestList() {
+    // The this below will not work because each this.name will have its own binding, so
+    // in this case, all of them will return undefined
+    // this.guestList.forEach(function (guest) {
+    //   console.log(`${guest} is attending to ${this.name}`);
+    //   })
+    // ES6 way
+    this.guestList.forEach(guest => console.log(`${guest} is attending to ${this.name}`))
+    // Now it works :D
+  }
+}
+newEvent.printGuestList();
