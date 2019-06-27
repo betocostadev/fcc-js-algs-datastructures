@@ -1,9 +1,9 @@
 /* freeCodeCamp JavaScript
 ES6
-Variables
+Functions
 */
 
-/* One of the biggest problems with declaring variables with the var keyword is that you can overwrite variable declarations without an error.
+/* ES6 Function Syntax
 */
 
 console.log(`=== ES6 Functions syntax ===`);
@@ -81,3 +81,21 @@ const squareListES6 = (arr) => {
 // test your code
 const squaredIntegersES6 = squareListES6(realNumberArray);
 console.log(squaredIntegersES6);
+
+/* Set Default Parameters for Your Functions
+In order to help us create more flexible functions, ES6 introduces default parameters for functions.
+
+function greeting(name = "Anonymous") {
+  return "Hello " + name;
+}
+The default parameter kicks in when the argument is not specified (it is undefined) */
+
+console.log(`
+=== Set Default parameters for functions ===
+`);
+
+const sayHello = (name = 'Anonymous') => {
+  return `Hello ${name}`
+}
+console.log(`Using the default paramenter: ${sayHello()}
+Providing a parameter: ${sayHello('Beto')}`);
