@@ -56,3 +56,92 @@ const spreadSquare = (...nums) => {
   return nums.filter(num => Number.isInteger(num) && num > 0).map(num => num * num);
 }
 console.log(spreadSquare(3.5, 10, -1, 4, 6, -4));
+
+console.log(`
+=== Use the spread operator to evaluate arrays in place ===
+`);
+
+/*
+Not using the spread operator, to get the max value of a number in an array we have to do this:
+
+var arr = [6, 89, 3, 45];
+var maximus = Math.max.apply(null, arr); // returns 89
+
+We had to use Math.max.apply(null, arr) because Math.max(arr) returns NaN. Math.max() expects comma-separated arguments, but not an array.
+
+The spread operator makes this syntax much better to read and maintain.
+
+const arr = [6, 89, 3, 45];
+const maximus = Math.max(...arr); // returns 89
+
+...arr returns an unpacked array. In other words, it spreads the array.
+
+However, the spread operator only works in-place, like in an argument to a function or in an array literal.
+*/
+
+const numsArr = [7, 42, 9, 6, 64, 20];
+const minNum = Math.min(...numsArr);
+const maxNum = Math.max(...numsArr);
+console.log(`Getting min and max value in the array ${numsArr} using the spread operator:
+Min = ${minNum}
+Max = ${maxNum}
+`);
+
+const someCars = ['Eclipse', 'Bugatti Veyron'];
+const favoriteCars = ['Lambo Veneno', 'Lambo Murcielago', 'Porsche GT3 RS'];
+const allCars = ['Subaru WRX', ...favoriteCars, ...someCars];
+
+console.log(`Now we will create one array with one element and get all the elements from other two arrays:
+someCars = ${someCars};
+favoriteCars = ${favoriteCars};
+allCars will include it's own car and spread the other two arrays to get their elements:
+allCars = ${allCars}.
+`);
+
+console.log(`
+=== Use Destructuring Assignment to Assign Variables from Objects ===
+`);
+
+/* Consider the following ES5 code:
+
+var voxel = {x: 3.6, y: 7.4, z: 6.54 };
+var x = voxel.x; // x = 3.6
+var y = voxel.y; // y = 7.4
+var z = voxel.z; // z = 6.54
+Here's the same assignment statement with ES6 destructuring syntax:
+
+const { x, y, z } = voxel; // x = 3.6, y = 7.4, z = 6.54
+ */
+
+const person = {
+  name: 'Beto',
+  age: 33,
+  cityToLive: 'Vancouver'
+}
+console.log(person);
+console.log(`The object person:`);
+const { name : nome, age, cityToLive : cidade } = person; // name : alias | Only if needed.
+// console.log(`After destructuring: ${person}`);
+console.log(`Now, after destructuring it into three separate variables:`);
+console.log(nome);
+console.log(age);
+console.log(cidade);
+
+console.log(`
+The FCC Function:
+`);
+
+const AVG_TEMPERATURES = {
+  today: 77.5,
+  tomorrow: 79
+};
+
+function getTempOfTmrw(avgTemperatures) {
+  "use strict";
+  // change code below this line
+  const { tomorrow : tempOfTomorrow} = avgTemperatures; // change this line
+  // change code above this line
+  return tempOfTomorrow;
+}
+
+console.log(getTempOfTmrw(AVG_TEMPERATURES)); // should be 79
