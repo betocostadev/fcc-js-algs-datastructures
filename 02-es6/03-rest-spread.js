@@ -97,3 +97,26 @@ favoriteCars = ${favoriteCars};
 allCars will include it's own car and spread the other two arrays to get their elements:
 allCars = ${allCars}.
 `);
+
+console.log(`Using a function to multiply all the elements of an array to the first element:`);
+
+const multiplyFirst = (multiplier, ...args) => {
+  return args.map(element => multiplier * element);
+}
+
+console.log(multiplyFirst(3, 1, 5, 10, 15));
+
+console.log(`
+With a matrix (an array with more arrays inside it) the spread operator will still spread the elements, but the arrays inside it will be copied to the new array. We can target the array index[x] to be spreaded and it will work.`);
+
+const multiArr = [1, 2, 3, [4, 5, 6], ['Hugs', 'Kisses']];
+console.log(multiArr);
+const spreadedMultiArr = [0, ...multiArr, 'new element'];
+console.log(spreadedMultiArr);
+
+// Spreading it and adding more to the array.
+
+const spreadFirst = [...multiArr[3], ...multiArr[4]];
+const getOthers = [multiArr[0], multiArr[2], multiArr[2]];
+const newArr = [-1, 0, ...getOthers, ...spreadFirst];
+console.log(newArr);

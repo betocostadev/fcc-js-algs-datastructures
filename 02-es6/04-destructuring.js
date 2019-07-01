@@ -53,3 +53,65 @@ function getTempOfTmrw(avgTemperatures) {
 }
 
 console.log(getTempOfTmrw(AVG_TEMPERATURES)); // should be 79
+
+// Destructuring Assignment to Assign Variables from Nested Objects
+console.log(`
+=== Destructuring Assignment to Assign Variables from Nested Objects ===
+`);
+const jet = {
+  name: '737-Max',
+  engines: {
+    qty: 2,
+    model: 'LEAP-1B'
+  }
+}
+console.log(`Jet:`);
+console.log(jet);
+
+const { engines : { qty: b737NumEng, model: b737EngModel } } = jet;
+console.log(`Destructured engine quantity and model:`);
+console.log(`The Boeing 737-Max have ${b737NumEng}, ${b737EngModel} engines.`);
+
+console.log(`
+Using it for the forecast function:
+`);
+
+const LOCAL_FORECAST = {
+  today: { min: 72, max: 83 },
+  tomorrow: { min: 73.3, max: 84.6 }
+};
+
+function getMaxOfTmrw(forecast) {
+  "use strict";
+  // change code below this line
+  const { tomorrow: { max: maxOfTomorrow}} = forecast; // change this line
+  // change code above this line
+  return maxOfTomorrow;
+}
+
+console.log(getMaxOfTmrw(LOCAL_FORECAST)); // should be 84.6
+
+
+// Use Destructuring Assignment to Assign Variables from Arrays
+console.log(`
+=== Use Destructuring Assignment to Assign Variables from Arrays ===
+`);
+
+const [a1, b1] = [1, 2, 3, 4, 5, 6];
+console.log(a1, b1); // 1, 2
+
+// To get other elements we use comma:
+const [, Bugatti, ,, Lambo] = ['Ferrari', 'Bugatti', 'Mitsubish', 'Alfa', 'Lambo', 'Koenigsegg'];
+console.log(Bugatti);
+console.log(Lambo);
+
+console.log('Replace the values of some variables:');
+let a = 8, b = 6;
+(() => {
+  "use strict";
+  // change code below this line
+  [b, a] = [a, b];
+  // change code above this line
+})();
+console.log(a); // should be 6
+console.log(b); // should be 8
