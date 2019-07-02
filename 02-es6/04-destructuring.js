@@ -115,3 +115,65 @@ let a = 8, b = 6;
 })();
 console.log(a); // should be 6
 console.log(b); // should be 8
+
+
+
+console.log(`
+=== Destructuring with the Rest Operator to Reassign Array Elements ===
+`);
+
+const source = [1,2,3,4,5,6,7,8,9,10];
+function removeFirstTwo(list) {
+  "use strict";
+  const [a, b, ...arr] = list; // It will remove the first two itens and copy the rest.
+  return arr;
+}
+const arr = removeFirstTwo(source);
+console.log(arr); // should be [3,4,5,6,7,8,9,10]
+console.log(source); // should be [1,2,3,4,5,6,7,8,9,10];
+
+
+console.log(`
+=== Destructuring to Pass an Object as a Function's Parameters ===
+`)
+const stats = {
+  max: 56.78,
+  standard_deviation: 4.34,
+  median: 34.54,
+  mode: 23.87,
+  min: -0.75,
+  average: 35.85
+};
+const half = (function() {
+  "use strict"; // do not change this line
+
+  // change code below this line
+  return function half({ max, min}) {
+    // use function argument destructuring
+    return (max + min) / 2.0;
+  };
+  // change code above this line
+
+})();
+console.log(stats); // should be object
+console.log(half(stats)); // should be 28.015
+
+const profileOne = {
+  firstName: 'Peter',
+  lastName: 'Parker',
+  age: 20
+}
+
+console.log(`
+Another example:
+`);
+const changeAge = (profileData) => {
+  const {firstName, lastName, age} = profileData;
+  const nameLength = firstName.length;
+  const lastNameLength = lastName.length;
+  return `${firstName} has ${nameLength} characters.
+${lastName} has ${lastNameLength} characters.
+He/she is ${age} years old;`
+}
+
+console.log(changeAge(profileOne));
