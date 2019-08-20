@@ -4,12 +4,17 @@ Regular Expressions
 
 /*
 REGEX - Index
-19 - The .test() method
-38 - Match a Literal String with Different Possibilities
-47 - Ignore case while matching
-55 - Extract Matches
-65 - Find More Than the First Match
-75 - Match Anything with Wildcard Period
+24 - The .test() method
+43 - Match a Literal String with Different Possibilities
+52 - Ignore case while matching
+60 - Extract Matches
+70 - Find More Than the First Match
+80 - Match Anything with Wildcard Period
+90 - Match a Single Character with Multiple Possibilities
+109 - Match Letters of the Alphabet
+116 - Match Numbers and Letters of the Alphabet
+124 - Match Single Characters Not Specified (negate characters)
+
 
 
 
@@ -81,3 +86,46 @@ console.log(unString.match(unRegex))
 const bakeCake = 'To eat a cake, you must first bake. Got it Jake?'
 const cakeRegex = /.ake/g
 console.log(bakeCake.match(cakeRegex))
+
+// Match a Single Character with Multiple Possibilities
+console.log(`
+=== Match a Single Character with Multiple Possibilities ===`)
+console.log(`More flexibility with character classes`)
+// Match all the characters inside the [ one, two, three] only.
+const theBString = 'In a big castle, there was a bug, but not a bog!'
+console.log(theBString)
+console.log('Match only big and bug, but not bog.')
+const bRegex = /b[iu]g/g
+console.log(theBString.match(bRegex)) // big, bug
+
+console.log(`
+Find the vowels below:`)
+const quote1Sample = "Beware of bugs in the above code; I have only proved it correct, not tried it."
+const vowelRegex = /[aeiou]/g
+const result1 = quote1Sample.match(vowelRegex)
+console.log(result1)
+
+// Easier way
+// Match All the letters of the Alphabet
+console.log(`Find all the letters from a to z [a-z]:`)
+const quote2Sample = "The quick brown fox jumps over the lazy dog."
+const alphabetRegex = /[a-z]/gi; // looks for a, b, c, d, e ... group and case A/a.
+const result2 = quote2Sample.match(alphabetRegex)
+console.log(result2)
+
+// Match Numbers and Letters of the Alphabet
+console.log(`
+=== Match Numbers and Letters of the Alphabet ===`)
+const userMadruga = 'Madruga098832-1'
+const findMadruga = /[a-z0-9]/gi
+const result3 = userMadruga.match(findMadruga)
+console.log(result3)
+
+// Match Single Characters Not Specified (negate characters)
+console.log(`
+=== Match Single Characters Not Specified (negate characters) ===`)
+const quote3Sample = "3 42 18 Godzilla killed the blind mice."
+// Negate all vowels, spaces and numbers
+const negator1 = /[^aeiou0-9 ]/gi // notice the space, also negated
+const result4 = quote3Sample.match(negator1)
+console.log(result4)
