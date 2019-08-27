@@ -10,9 +10,9 @@ REGEX - Index
 67 - Match Everything But Letters and Numbers
 87 - Match All Numbers - Shorthand (\d)
 112 - Challenge - Restrict Possible user names
-90 -
-109 -
-116 -
+130 - Match Whitespace Characters
+141 - Match Non-Whitespace Characters
+
 
 */
 
@@ -126,3 +126,23 @@ console.log(userCheck.test(userTwo)); // true
 console.log(userCheck.test(userThree)); // true
 console.log(userCheck.test(userForbid1)); // false
 console.log(userCheck.test(userForbid2)); // false
+
+// Match Whitespace Characters
+console.log(`
+=== Match Whitespace Characters ===
+`)
+const sampleWhiteSpace = "Whitespace is important in separating words"
+const regexWhiteSpace = /\s/g
+const countWhiteSpace = sampleWhiteSpace.match(regexWhiteSpace).length
+const whiteSpaceMatch = sampleWhiteSpace.match(regexWhiteSpace)
+console.log(countWhiteSpace) // 5
+console.log(whiteSpaceMatch) // [ ' ', ' ', ' ', ' ', ' ' ]
+
+// Match Non-Whitespace Characters
+console.log(`
+=== Match Non-Whitespace Characters ===
+`)
+const sampleNoWhitespace = "Whitespace is important in separating words"
+const regexNoWhiteSpace = /\S/g
+const noWhiteSpace = sampleNoWhitespace.match(regexNoWhiteSpace)
+console.log(noWhiteSpace)
