@@ -9,7 +9,7 @@ REGEX - Index
 44 - Match All Letters and Numbers
 67 - Match Everything But Letters and Numbers
 87 - Match All Numbers - Shorthand (\d)
-80 -
+112 - Challenge - Restrict Possible user names
 90 -
 109 -
 116 -
@@ -108,3 +108,21 @@ const nonNumberString = `To win the lottery go for 13-16-28-42-43-58`
 const nonNumRegex = /\D*/ // Will get everything until it finds the number sequence.
 const nonNumbersTest = nonNumberString.match(nonNumRegex)
 console.log(nonNumbersTest) // 'To win the lottery go for '
+
+// Challenge - Restrict Possible user names
+console.log(`
+=== Challenge - Restrict Possible user names ===
+`)
+const userOne = "JackOfAllTrades"
+const userTwo = "Oceans11"
+const userThree = "RegexGuru"
+const userForbid1 = "007"
+const userForbid2 = "J"
+
+const userCheck = /^[A-Za-z]+[A-Za-z]/i;
+
+console.log(userCheck.test(userOne)); // true
+console.log(userCheck.test(userTwo)); // true
+console.log(userCheck.test(userThree)); // true
+console.log(userCheck.test(userForbid1)); // false
+console.log(userCheck.test(userForbid2)); // false
